@@ -1,0 +1,106 @@
+﻿@model ValidationinMVCLooslyBinding.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Loose Binding Validation in MVC</h1>
+        @using (Html.BeginForm("SubmitData", "Home"))
+        {
+            @Html.DisplayFor(x=>x.name);
+            @Html.TextBox("name");
+            @Html.ValidationMessage("name");
+            <br />
+            @Html.DisplayFor(x => x.Classs);
+            @Html.TextBox("Classs");
+            @Html.ValidationMessage("Classs");
+            <br />
+            @Html.DisplayFor(x => x.Email);
+            @Html.TextBox("Email");
+            @Html.ValidationMessage("Email");
+            <br />
+            @Html.DisplayFor(x => x.age);
+            @Html.Editor("age");
+            @Html.ValidationMessage("age");
+
+
+
+            <br />
+            @Html.DisplayFor(x => x.PhoneNumber);
+            @Html.EditorFor(x => x.PhoneNumber);
+
+            <input type="submit" value="submit"/>
+
+
+        }
+
+
+        
+    </div>
+    <div>
+    <h1>Loose Binding Validation in MVC</h1>
+    @using (Html.BeginForm("SubmitDataStrongBinding", "Home"))
+    {
+        @Html.DisplayFor(x => x.name);
+        @Html.TextBoxFor(x => x.name);
+        @Html.ValidationMessageFor(x => x.name);
+        <br />
+            @Html.DisplayFor(x => x.Classs);
+        @Html.TextBoxFor(x => x.Classs);
+        @Html.ValidationMessageFor(x => x.Classs);
+        <br />
+            @Html.DisplayFor(x => x.Email);
+        @Html.TextBoxFor(x => x.Email);
+        @Html.ValidationMessageFor(x => x.Email);
+        <br />
+            @Html.DisplayFor(x => x.age);
+        @Html.EditorFor(x => x.age);
+        @Html.ValidationMessageFor(x => x.age);
+        <br />
+        @Html.DisplayFor(x => x.PhoneNumber);
+        @Html.EditorFor(x => x.PhoneNumber);
+
+        <input type="submit" value="submit" />
+
+
+    }
+        </div>
+
+    <div>
+        @using (Html.BeginForm("SubmitDataValidationSummary", "Home",FormMethod.Post))
+        {
+
+            @Html.ValidationSummary();
+            @Html.DisplayFor(x => x.name);
+            @Html.TextBoxFor(x => x.name);
+         
+            <br />
+            @Html.DisplayFor(x => x.Classs);
+            @Html.TextBoxFor(x => x.Classs);
+          
+            <br />
+            @Html.DisplayFor(x => x.Email);
+            @Html.TextBoxFor(x => x.Email);
+          
+            <br />
+            @Html.DisplayFor(x => x.age);
+            @Html.EditorFor(x => x.age);
+            <br />
+            @Html.DisplayFor(x => x.PhoneNumber);
+            @Html.EditorFor(x => x.PhoneNumber);
+
+            <input type="submit" value="submit" />
+
+
+        }
+    </div>
+</body>
+</html>
